@@ -1,0 +1,11 @@
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\bin\Debug\Falling-Sand-Simulation.exe.config
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\bin\Debug\Falling-Sand-Simulation.exe
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\bin\Debug\Falling-Sand-Simulation.pdb
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling-Sand-Simulation.csproj.AssemblyReference.cache
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling-Sand-Simulation.csproj.SuggestedBindingRedirects.cache
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling_Sand_Simulation.Form1.resources
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling_Sand_Simulation.Properties.Resources.resources
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling-Sand-Simulation.csproj.GenerateResource.cache
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling-Sand-Simulation.csproj.CoreCompileInputs.cache
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling-Sand-Simulation.exe
+C:\Tec_info\C# Forms\Falling-Sand-Simulation\Falling-Sand-Simulation\obj\Debug\Falling-Sand-Simulation.pdb
