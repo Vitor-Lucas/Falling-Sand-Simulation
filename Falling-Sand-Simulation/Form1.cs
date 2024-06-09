@@ -13,15 +13,18 @@ namespace Falling_Sand_Simulation
 {
     public partial class Form1 : Form
     {
-        int WIDTH = 550, HEIGHT = 530;
+        int WIDTH = 550, HEIGHT = 570;
         int cell_width = 10, cell_height = 10;
         int[,] grid;
         Color[,] color_grid;
         bool drag_drawing;
+
         Graphics g;
         Random r;
+
         List<Color> colors;
         int color_index = 0;
+        int color_step = 100;
         public Form1()
         {
             InitializeComponent();
@@ -32,23 +35,55 @@ namespace Falling_Sand_Simulation
             color_grid = new Color[WIDTH / cell_width, HEIGHT / cell_height];
             g = CreateGraphics();
             r = new Random();
-            colors = GetGradients(Color.Black, Color.White, 100);
+            colors = GetGradients(color_step);
             DrawGrid();
         }
-        public List<Color> GetGradients(Color start, Color end, int steps)
+
+
+        public List<Color> GetGradients(int steps)
         {
-            Color stepper = Color.FromArgb((byte)((end.A - start.A) / (steps - 1)),
-                                           (byte)((end.R - start.R) / (steps - 1)),
-                                           (byte)((end.G - start.G) / (steps - 1)),
-                                           (byte)((end.B - start.B) / (steps - 1)));
             List<Color> gradient = new List<Color>();
-            for (int i = 0; i < steps; i++)
+
+            // Define base colors for a wide gradient range
+            List<Color> baseColors = new List<Color>
+        {
+            Color.Red,
+            Color.Orange,
+            Color.Yellow,
+            Color.Green,
+            Color.Cyan,
+            Color.Blue,
+            Color.Indigo,
+            Color.Violet
+        };
+
+            // Ensure we have at least 2 steps per base color segment
+            if (steps < baseColors.Count - 1)
             {
-                gradient.Add(Color.FromArgb(start.A + (stepper.A * i),
-                                            start.R + (stepper.R * i),
-                                            start.G + (stepper.G * i),
-                                            start.B + (stepper.B * i)));
+                throw new ArgumentException("Number of steps must be at least " + (baseColors.Count - 1));
             }
+
+            // Calculate the number of steps per color segment
+            int stepsPerSegment = steps / (baseColors.Count - 1);
+
+            // Generate the gradient
+            for (int i = 0; i < baseColors.Count - 1; i++)
+            {
+                Color start = baseColors[i];
+                Color end = baseColors[i + 1];
+                for (int j = 0; j < stepsPerSegment; j++)
+                {
+                    float ratio = (float)j / stepsPerSegment;
+                    int r = (int)(start.R * (1 - ratio) + end.R * ratio);
+                    int g = (int)(start.G * (1 - ratio) + end.G * ratio);
+                    int b = (int)(start.B * (1 - ratio) + end.B * ratio);
+                    gradient.Add(Color.FromArgb(r, g, b));
+                }
+            }
+
+            // Add the last color to complete the gradient
+            gradient.Add(baseColors[baseColors.Count - 1]);
+
             return gradient;
         }
 
@@ -152,8 +187,11 @@ namespace Falling_Sand_Simulation
                     if (j == floor_index)
                     {
                         if (new_grid[i, j] != grid[i, j])
+                        {
                             new_grid[i, j] = 1;
-                        else { 
+                            new_color_grid[i, j] = color_grid[i, j];
+                        }else 
+                        { 
                             new_grid[i, j] = current;
                             new_color_grid[i, j] = color_grid[i, j];
                         }
@@ -204,6 +242,12 @@ namespace Falling_Sand_Simulation
             color_index++;
 
             update();
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            grid = new int[WIDTH / cell_width, HEIGHT / cell_height];
+            color_grid = new Color[WIDTH / cell_width, HEIGHT / cell_height];
         }
 
         private void Form1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)

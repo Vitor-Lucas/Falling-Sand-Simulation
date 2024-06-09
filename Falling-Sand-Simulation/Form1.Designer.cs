@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dragCheckBox = new System.Windows.Forms.CheckBox();
+            this.resetButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -51,17 +52,29 @@
             this.dragCheckBox.UseVisualStyleBackColor = true;
             this.dragCheckBox.CheckedChanged += new System.EventHandler(this.dragCheckBox_CheckedChanged);
             // 
+            // resetButton
+            // 
+            this.resetButton.Location = new System.Drawing.Point(-1, 35);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.TabIndex = 2;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(544, 521);
+            this.ClientSize = new System.Drawing.Size(544, 561);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.dragCheckBox);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(539, 449);
+            this.MaximumSize = new System.Drawing.Size(560, 600);
+            this.MinimumSize = new System.Drawing.Size(537, 443);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simulation";
@@ -77,6 +90,7 @@
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox dragCheckBox;
+        private System.Windows.Forms.Button resetButton;
     }
 }
 
