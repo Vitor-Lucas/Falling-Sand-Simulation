@@ -30,12 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dragCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // dragCheckBox
+            // 
+            this.dragCheckBox.AutoSize = true;
+            this.dragCheckBox.ForeColor = System.Drawing.Color.Cornsilk;
+            this.dragCheckBox.Location = new System.Drawing.Point(-1, 12);
+            this.dragCheckBox.Name = "dragCheckBox";
+            this.dragCheckBox.Size = new System.Drawing.Size(49, 17);
+            this.dragCheckBox.TabIndex = 1;
+            this.dragCheckBox.Text = "Drag";
+            this.dragCheckBox.UseVisualStyleBackColor = true;
+            this.dragCheckBox.CheckedChanged += new System.EventHandler(this.dragCheckBox_CheckedChanged);
             // 
             // Form1
             // 
@@ -43,24 +57,26 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(544, 521);
+            this.Controls.Add(this.dragCheckBox);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(539, 449);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Simulation";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.CheckBox dragCheckBox;
     }
 }
 
